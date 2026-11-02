@@ -1,0 +1,17 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Java / Maven
+target/
+
+# IntelliJ
+.idea/
+*.iml
+
+# Recordings (may contain typed values)
+sessions/
+
+# Secrets (never upload)
+.env
