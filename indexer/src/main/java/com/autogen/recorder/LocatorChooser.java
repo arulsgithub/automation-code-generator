@@ -13,18 +13,21 @@ public class LocatorChooser {
         if (has(e.testId()) && e.testIdCount() == 1 && safe(e.testId())) {
             return Optional.of(new Locator(
                     "By.cssSelector(\"[" + e.testIdAttr() + "='" + e.testId() + "']\")",
+                    "css:[" + e.testIdAttr() + "='" + e.testId() + "']",
                     "unique " + e.testIdAttr()));
         }
 
         if (has(e.id()) && e.idCount() == 1 && safe(e.id()) && !looksGenerated(e.id())) {
             return Optional.of(new Locator(
                     "By.id(\"" + e.id() + "\")",
+                    "id:" + e.id(),
                     "unique id"));
         }
 
         if (has(e.name()) && e.nameCount() == 1 && safe(e.name())) {
             return Optional.of(new Locator(
                     "By.name(\"" + e.name() + "\")",
+                    "name:" + e.name(),
                     "unique name"));
         }
 
@@ -32,6 +35,7 @@ public class LocatorChooser {
                 && (e.tag().equals("button") || e.tag().equals("a"))) {
             return Optional.of(new Locator(
                     "By.xpath(\"//" + e.tag() + "[normalize-space()='" + e.text() + "']\")",
+                    "xpath://" + e.tag() + "[normalize-space()='" + e.text() + "']",
                     "unique button/link text"));
         }
 

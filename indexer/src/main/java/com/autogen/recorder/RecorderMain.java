@@ -61,6 +61,7 @@ public class RecorderMain {
         Locator locator = chooser.choose(e).orElse(null);
         return new Step(e.kind(), e.tag(), e.text(), e.value(),
                 locator == null ? null : locator.code(),
+                locator == null ? null : locator.key(),
                 locator == null ? null : locator.reason());
     }
 
