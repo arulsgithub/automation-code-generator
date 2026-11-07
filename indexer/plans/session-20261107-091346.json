@@ -1,0 +1,84 @@
+{
+  "sessionFile" : "session-20261107-091346.json",
+  "decisions" : [ {
+    "start" : 0,
+    "length" : 3,
+    "className" : "LoginPage",
+    "methodName" : "loginAs",
+    "returnType" : "InventoryPage",
+    "arguments" : [ "standard_user", "<masked>" ],
+    "source" : "tester"
+  }, {
+    "start" : 3,
+    "length" : 1,
+    "className" : "InventoryPage",
+    "methodName" : "addItemToCart",
+    "returnType" : "InventoryPage",
+    "arguments" : [ "bag" ],
+    "source" : "tester"
+  }, {
+    "start" : 4,
+    "length" : 1,
+    "className" : "InventoryPage",
+    "methodName" : "addItemToCart",
+    "returnType" : "InventoryPage",
+    "arguments" : [ "shoe" ],
+    "source" : "tester"
+  }, {
+    "start" : 5,
+    "length" : 1,
+    "className" : "InventoryPage",
+    "methodName" : "openCart",
+    "returnType" : "CartPage",
+    "arguments" : [ ],
+    "source" : "tester"
+  }, {
+    "start" : 6,
+    "length" : 1,
+    "className" : "InventoryPage",
+    "methodName" : "openCart",
+    "returnType" : "CartPage",
+    "arguments" : [ ],
+    "source" : "tester"
+  }, {
+    "start" : 7,
+    "length" : 1,
+    "className" : "CartPage",
+    "methodName" : "getItemCount",
+    "returnType" : "int",
+    "arguments" : [ ],
+    "source" : "tester"
+  }, {
+    "start" : 8,
+    "length" : 1,
+    "className" : "InventoryPage",
+    "methodName" : "removeItemFromCart",
+    "returnType" : "InventoryPage",
+    "arguments" : [ "bag" ],
+    "source" : "tester"
+  }, {
+    "start" : 9,
+    "length" : 1,
+    "className" : "InventoryPage",
+    "methodName" : "removeItemFromCart",
+    "returnType" : "InventoryPage",
+    "arguments" : [ "shoe" ],
+    "source" : "tester"
+  }, {
+    "start" : 10,
+    "length" : 1,
+    "className" : "CartPage",
+    "methodName" : "checkout",
+    "returnType" : "CheckoutInfoPage",
+    "arguments" : [ ],
+    "source" : "automatic"
+  }, {
+    "start" : 11,
+    "length" : 1,
+    "className" : "CheckoutCompletePage",
+    "methodName" : "isOrderComplete",
+    "returnType" : "boolean",
+    "arguments" : [ ],
+    "source" : "tester"
+  } ]
+}

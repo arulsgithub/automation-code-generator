@@ -44,8 +44,15 @@ public class FootprintScanner {
                 continue;
             }
             List<Action> actions = collectActions(method, fields, methodsByName, new HashSet<>());
+
+            List<String> params = new ArrayList<>();
+            for (com.github.javaparser.ast.body.Parameter parameter : method.getParameters()) {
+                params.add(parameter.getNameAsString());
+            }
+
             result.add(new MethodFootprint(
-                    className, method.getNameAsString(), method.getType().asString(), actions));
+                    className, method.getNameAsString(), method.getType().asString(),
+                    params, actions));
         }
         return result;
     }
