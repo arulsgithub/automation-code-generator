@@ -14,7 +14,7 @@
     "className" : "InventoryPage",
     "methodName" : "addItemToCart",
     "returnType" : "InventoryPage",
-    "arguments" : [ "bag" ],
+    "arguments" : [ "book" ],
     "source" : "tester"
   }, {
     "start" : 4,
@@ -22,48 +22,48 @@
     "className" : "InventoryPage",
     "methodName" : "addItemToCart",
     "returnType" : "InventoryPage",
-    "arguments" : [ "shoe" ],
+    "arguments" : [ "bag" ],
     "source" : "tester"
   }, {
     "start" : 5,
     "length" : 1,
     "className" : "InventoryPage",
-    "methodName" : "openCart",
-    "returnType" : "CartPage",
-    "arguments" : [ ],
+    "methodName" : "addItemToCart",
+    "returnType" : "InventoryPage",
+    "arguments" : [ "pen" ],
     "source" : "tester"
   }, {
     "start" : 6,
     "length" : 1,
     "className" : "InventoryPage",
+    "methodName" : "addItemToCart",
+    "returnType" : "InventoryPage",
+    "arguments" : [ "note" ],
+    "source" : "tester"
+  }, {
+    "start" : 7,
+    "length" : 1,
+    "className" : "InventoryPage",
     "methodName" : "openCart",
     "returnType" : "CartPage",
     "arguments" : [ ],
     "source" : "tester"
   }, {
-    "start" : 7,
-    "length" : 1,
-    "className" : "CartPage",
-    "methodName" : "getItemCount",
-    "returnType" : "int",
-    "arguments" : [ ],
-    "source" : "tester"
-  }, {
     "start" : 8,
     "length" : 1,
-    "className" : "InventoryPage",
-    "methodName" : "removeItemFromCart",
-    "returnType" : "InventoryPage",
-    "arguments" : [ "bag" ],
-    "source" : "tester"
+    "className" : null,
+    "methodName" : null,
+    "returnType" : null,
+    "arguments" : [ ],
+    "source" : "new method"
   }, {
     "start" : 9,
     "length" : 1,
-    "className" : "InventoryPage",
-    "methodName" : "removeItemFromCart",
-    "returnType" : "InventoryPage",
-    "arguments" : [ "shoe" ],
-    "source" : "tester"
+    "className" : null,
+    "methodName" : null,
+    "returnType" : null,
+    "arguments" : [ ],
+    "source" : "new method"
   }, {
     "start" : 10,
     "length" : 1,
@@ -75,10 +75,10 @@
   }, {
     "start" : 11,
     "length" : 1,
-    "className" : "CheckoutCompletePage",
-    "methodName" : "isOrderComplete",
-    "returnType" : "boolean",
+    "className" : null,
+    "methodName" : null,
+    "returnType" : null,
     "arguments" : [ ],
-    "source" : "tester"
+    "source" : "new method"
   } ]
 }
