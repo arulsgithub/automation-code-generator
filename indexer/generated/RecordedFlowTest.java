@@ -17,17 +17,17 @@ class RecordedFlowTest extends BaseTest {
     void recordedFlow() {
         // TODO: replace TODO_PASSWORD with real test data
         InventoryPage inventoryPage = loginPage.loginAs("standard_user", "TODO_PASSWORD");
-        inventoryPage.addItemToCart("book");
-        inventoryPage.addItemToCart("bag");
-        inventoryPage.addItemToCart("pen");
-        inventoryPage.addItemToCart("note");
+        inventoryPage.addItemToCart("Sauce Labs Backpack");
+        inventoryPage.addItemToCart("Sauce Labs Bike Light");
+        inventoryPage.addItemToCart("Sauce Labs Fleece Jacket");
+        inventoryPage.addItemToCart("Sauce Labs Bolt T Shirt");
         CartPage cartPage = inventoryPage.openCart();
-        // NEW METHOD: add clickRemove(0 value(s)) to CartPage
-        cartPage.clickRemove();
-        // NEW METHOD: add clickRemove(0 value(s)) to CartPage
-        cartPage.clickRemove();
+        // NEW METHOD: CartPage.removeItem (code is in generated/additions/CartPage.txt)
+        cartPage.removeItem("Sauce Labs Backpack");
+        // NEW METHOD: CartPage.removeItem (code is in generated/additions/CartPage.txt)
+        cartPage.removeItem("Sauce Labs Fleece Jacket");
         CheckoutInfoPage checkoutInfoPage = cartPage.checkout();
-        // NEW METHOD: add clickCancel(0 value(s)) to CheckoutInfoPage
+        // NEW METHOD: CheckoutInfoPage.clickCancel (code is in generated/additions/CheckoutInfoPage.txt)
         checkoutInfoPage.clickCancel();
     }
 }

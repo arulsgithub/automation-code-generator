@@ -16,6 +16,7 @@ public class PageIndex {
 
     private final List<MethodFootprint> footprints = new ArrayList<>();
     private final Map<String, Set<String>> ownersByLocator = new HashMap<>();
+    private final Map<String, Map<String, String>> fieldsByClass = new HashMap<>();
 
     /** Scan every .java file under the folder. */
     public static PageIndex build(Path folder) throws IOException {
@@ -38,6 +39,12 @@ public class PageIndex {
             }
             for (MethodFootprint footprint : scanned) {
                 index.add(footprint);
+            }
+            try {
+                String fileName = file.getFileName().toString();
+                index.fieldsByClass.put(fileName.substring(0, fileName.length() - 5), scanner.fieldsOf(file));
+            } catch (RuntimeException problem) {
+                // no fields known for this class: the generator will simply add new ones
             }
         }
         return index;
@@ -67,4 +74,10 @@ public class PageIndex {
     public Map<String, Set<String>> allOwners() {
         return ownersByLocator;
     }
+
+    /** The @FindBy fields of a page class: field name -> locator key. Empty if unknown. */
+    public Map<String, String> fieldsOf(String className) {
+        return fieldsByClass.getOrDefault(className, Collections.emptyMap());
+    }
+
 }

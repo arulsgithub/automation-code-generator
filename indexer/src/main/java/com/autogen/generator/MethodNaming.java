@@ -65,6 +65,10 @@ public final class MethodNaming {
 
     /** "Open Menu" / "open-menu" / "shopping_cart_link" -> OpenMenu / OpenMenu / ShoppingCartLink (max 4 words) */
     static String pascal(String text) {
+        return pascal(text, 4);
+    }
+
+    static String pascal(String text, int maxWords) {
         String spaced = text.replaceAll("([a-z])([A-Z])", "$1 $2");
         List<String> words = new ArrayList<>();
         for (String word : spaced.split("[^A-Za-z0-9]+")) {
@@ -73,7 +77,7 @@ public final class MethodNaming {
             }
         }
         StringBuilder out = new StringBuilder();
-        for (int i = 0; i < Math.min(words.size(), 4); i++) {
+        for (int i = 0; i < Math.min(words.size(), maxWords); i++) {
             String w = words.get(i);
             out.append(Character.toUpperCase(w.charAt(0))).append(w.substring(1).toLowerCase());
         }

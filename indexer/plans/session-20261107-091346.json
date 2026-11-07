@@ -14,7 +14,7 @@
     "className" : "InventoryPage",
     "methodName" : "addItemToCart",
     "returnType" : "InventoryPage",
-    "arguments" : [ "book" ],
+    "arguments" : [ "Sauce Labs Backpack" ],
     "source" : "tester"
   }, {
     "start" : 4,
@@ -22,7 +22,7 @@
     "className" : "InventoryPage",
     "methodName" : "addItemToCart",
     "returnType" : "InventoryPage",
-    "arguments" : [ "bag" ],
+    "arguments" : [ "Sauce Labs Bike Light" ],
     "source" : "tester"
   }, {
     "start" : 5,
@@ -30,7 +30,7 @@
     "className" : "InventoryPage",
     "methodName" : "addItemToCart",
     "returnType" : "InventoryPage",
-    "arguments" : [ "pen" ],
+    "arguments" : [ "Sauce Labs Fleece Jacket" ],
     "source" : "tester"
   }, {
     "start" : 6,
@@ -38,7 +38,7 @@
     "className" : "InventoryPage",
     "methodName" : "addItemToCart",
     "returnType" : "InventoryPage",
-    "arguments" : [ "note" ],
+    "arguments" : [ "Sauce Labs Bolt T Shirt" ],
     "source" : "tester"
   }, {
     "start" : 7,

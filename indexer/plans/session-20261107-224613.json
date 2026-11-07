@@ -1,0 +1,12 @@
+{
+  "sessionFile" : "session-20261107-224613.json",
+  "decisions" : [ {
+    "start" : 0,
+    "length" : 3,
+    "className" : "LoginPage",
+    "methodName" : "submitCredentials",
+    "returnType" : "LoginPage",
+    "arguments" : [ "standard_user", "<masked>" ],
+    "source" : "automatic"
+  } ]
+}

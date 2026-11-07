@@ -1,0 +1,9 @@
+// Add this to CartPage.java
+// Imports needed (if missing): org.openqa.selenium.By
+
+    public CartPage removeItem(String itemName) {
+        String id = "remove-" + itemName.toLowerCase().replace(' ', '-');
+        click(driver.findElement(By.cssSelector("[data-test='" + id + "']")));
+        return this;
+    }
+

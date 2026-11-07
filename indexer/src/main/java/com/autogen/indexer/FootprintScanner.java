@@ -191,4 +191,9 @@ public class FootprintScanner {
         visiting.remove(method.getNameAsString());
         return actions;
     }
+
+    /** field name -> locator, for the @FindBy fields of one page object file. */
+    public Map<String, String> fieldsOf(Path javaFile) throws IOException {
+        return readFindByFields(StaticJavaParser.parse(javaFile));
+    }
 }

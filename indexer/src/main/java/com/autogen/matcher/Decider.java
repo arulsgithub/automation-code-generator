@@ -82,7 +82,7 @@ public class Decider {
             Remembered earlier = memory.get(key);
             if (askYesNo("  Same as step " + earlier.stepNumber() + " ("
                     + earlier.option().className() + "." + earlier.option().methodName() + ")? (y/n): ")) {
-                List<String> arguments = fillArguments(earlier.option(), segment.arguments());
+                List<String> arguments = fillArguments(earlier.option(), segment.arguments(), segment, steps);
                 return decision(segment, earlier.option(), arguments, "tester");
             }
         }
@@ -106,7 +106,7 @@ public class Decider {
         if (chosen == null) {
             return decision(segment, null, segment.arguments(), "new method");
         }
-        List<String> arguments = fillArguments(chosen, segment.arguments());
+        List<String> arguments = fillArguments(chosen, segment.arguments(), segment, steps);
         if (memory != null && segment.length() == 1) {
             memory.put(key, new Remembered(segment.start() + 1, chosen));
         }
@@ -228,14 +228,36 @@ public class Decider {
         }
     }
 
-    /** If the method takes more values than the tester typed, ask for the rest. */
-    private List<String> fillArguments(Option option, List<String> typed) throws IOException {
+    /**
+     * If the method takes more values than the tester typed, get the rest.
+     * For a single click we try to read the value from the recorded locator
+     * (add-to-cart-sauce-labs-backpack -> "Sauce Labs Backpack") and let the tester accept it.
+     */
+    private List<String> fillArguments(Option option, List<String> typed, Segment segment,
+                                       List<Step> steps) throws IOException {
         List<String> arguments = new ArrayList<>(typed);
+        String suggestion = null;
+        if (segment.length() == 1) {
+            Step step = steps.get(segment.start());
+            if (step.kind().equals("click")) {
+                suggestion = LocatorKeys.itemNameFor(step.text(), step.locatorKey());
+            }
+        }
         for (int i = arguments.size(); i < option.paramNames().size(); i++) {
-            out.print("  value for " + option.paramNames().get(i) + ": ");
+            String name = option.paramNames().get(i);
+            if (suggestion != null) {
+                out.print("  value for " + name + " [" + suggestion + "] (press Enter to accept): ");
+            } else {
+                out.print("  value for " + name + ": ");
+            }
             out.flush();
             String line = in.readLine();
-            arguments.add(line == null ? "" : line.trim());
+            String value = (line == null) ? "" : line.trim();
+            if (value.isEmpty() && suggestion != null) {
+                value = suggestion;
+            }
+            arguments.add(value);
+            suggestion = null;           // only the first missing value can come from the locator
         }
         return arguments;
     }
